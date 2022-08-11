@@ -68,6 +68,9 @@ pub enum ContractError {
 
     #[error("User not whitelisted for this feature")]
     UnwhitelistedUser {},
+
+    #[error("Pool does not have enough liquidity")]
+    InsufficientLiquidity {},
     // Add any other custom errors you like here.
     // Look at https://docs.rs/thiserror/1.0.21/thiserror/ for details.
 }
