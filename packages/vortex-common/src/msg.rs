@@ -122,6 +122,9 @@ pub enum ExecuteMsg {
         whitelist: Vec<Addr>,
         whitelist_enable: bool,
     },
+    Liquidate {
+        account: Addr,
+    },
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
