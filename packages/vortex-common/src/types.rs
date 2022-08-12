@@ -47,6 +47,7 @@ pub enum OrderType {
     Limit,
     Market,
     Liquidation,
+    FokMarket,
 }
 
 pub fn i32_to_order_type(i: i32) -> OrderType {
@@ -54,6 +55,7 @@ pub fn i32_to_order_type(i: i32) -> OrderType {
         0i32 => OrderType::Limit,
         1i32 => OrderType::Market,
         2i32 => OrderType::Liquidation,
+        3i32 => OrderType::FokMarket,
         _ => OrderType::Unknown,
     }
 }
@@ -63,6 +65,7 @@ pub fn order_type_to_i32(o: OrderType) -> i32 {
         OrderType::Limit => 0i32,
         OrderType::Market => 1i32,
         OrderType::Liquidation => 2i32,
+        OrderType::FokMarket => 3i32,
         OrderType::Unknown => -1i32,
     }
 }
