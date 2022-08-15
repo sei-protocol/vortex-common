@@ -1,10 +1,6 @@
-use crate::error::ContractError;
 use cosmwasm_std::{Decimal, DecimalRangeExceeded, Fraction, Uint128};
-use cosmwasm_std::{Deps, StdError};
 use forward_ref::{forward_ref_binop, forward_ref_op_assign};
 use schemars::JsonSchema;
-use sei_cosmwasm::SeiQueryWrapper;
-use semver::Version;
 use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
 use std::ops::{Add, AddAssign, Div, Mul, Sub, SubAssign};
@@ -308,23 +304,4 @@ pub fn decimal2u128_ceiling(d: Decimal) -> u128 {
     let decimal_places = d.decimal_places();
     let divisor = base.pow(decimal_places) as u128;
     (atomics.u128() + divisor - 1) / divisor
-}
-
-pub fn validate_migration(
-    deps: Deps<SeiQueryWrapper>,
-    contract_name: &str,
-    contract_version: &str,
-) -> Result<(), ContractError> {
-    let ver = cw2::get_contract_version(deps.storage)?;
-    // ensure we are migrating from an allowed contract
-    if ver.contract != contract_name {
-        return Err(StdError::generic_err("Can only upgrade from same type").into());
-    }
-
-    let storage_version: Version = ver.version.parse()?;
-    let version: Version = contract_version.parse()?;
-    if storage_version >= version {
-        return Err(StdError::generic_err("Cannot upgrade from a newer version").into());
-    }
-    Ok(())
 }
