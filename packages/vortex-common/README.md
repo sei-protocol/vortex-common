@@ -4,11 +4,11 @@ This crate provides Vortex specific msgs and data struct for cosmwasm contract t
 
 ## Installation
 
-Add the vortex-common dependency to your smart contract's `Cargo.toml` file:
+Add the latest vortex-common version to your smart contract's `Cargo.toml` file:
 
 ```toml
 [dependencies]
-vortex-common = { version = "0.1.3" }
+vortex-common = { version = "0.1.4" }
 ```
 
 ## Functionality and Usages
