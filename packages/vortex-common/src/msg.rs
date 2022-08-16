@@ -130,6 +130,7 @@ pub enum ExecuteMsg {
     },
     MintDenom {
         denom_name: String,
+        denom_amount: u128,
     }
 }
 
