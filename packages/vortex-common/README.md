@@ -8,7 +8,7 @@ Add the latest vortex-common version to your smart contract's `Cargo.toml` file:
 
 ```toml
 [dependencies]
-vortex-common = { version = "0.1.5" }
+vortex-common = { version = "0.1.6" }
 ```
 
 ## Functionality and Usages
