@@ -1,4 +1,5 @@
 use std::io::Write;
+use std::fmt;
 
 use crate::utils::SignedDecimal;
 use cosmwasm_std::{Decimal, StdError};
@@ -41,6 +42,16 @@ pub enum PositionEffect {
     Close,
 }
 
+impl fmt::Display for PositionEffect {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            PositionEffect::Unknown => write!(f, "Unknown"),
+            PositionEffect::Open => write!(f, "Open"),
+            PositionEffect::Close => write!(f, "Close"),
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, JsonSchema, Eq, Hash)]
 pub enum OrderType {
     Unknown,
@@ -48,6 +59,18 @@ pub enum OrderType {
     Market,
     Liquidation,
     Fokmarket,
+}
+
+impl fmt::Display for OrderType {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            OrderType::Unknown => write!(f, "Unknown"),
+            OrderType::Limit => write!(f, "Limit"),
+            OrderType::Market => write!(f, "Market"),
+            OrderType::Liquidation => write!(f, "Liquidation"),
+            OrderType::Fokmarket => write!(f, "Fokmarket"),
+        }
+    }
 }
 
 pub fn i32_to_order_type(i: i32) -> OrderType {

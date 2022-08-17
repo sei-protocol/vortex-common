@@ -131,7 +131,7 @@ pub enum ExecuteMsg {
     MintDenom {
         denom_name: String,
         denom_amount: u128,
-    }
+    },
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
