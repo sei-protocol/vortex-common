@@ -125,6 +125,13 @@ pub enum ExecuteMsg {
     Liquidate {
         account: Addr,
     },
+    CreateDenom {
+        denom_name: String,
+    },
+    MintDenom {
+        denom_name: String,
+        denom_amount: u128,
+    }
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
