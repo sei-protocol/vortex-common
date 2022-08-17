@@ -35,6 +35,16 @@ pub enum PositionDirection {
     Short,
 }
 
+impl fmt::Display for PositionDirection {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            PositionDirection::Unknown => write!(f, "Unknown"),
+            PositionDirection::Long => write!(f, "Long"),
+            PositionDirection::Short => write!(f, "Short"),
+        }
+    }
+}
+
 #[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, JsonSchema, Eq, Hash)]
 pub enum PositionEffect {
     Unknown,
