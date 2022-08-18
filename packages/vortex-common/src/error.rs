@@ -30,6 +30,21 @@ pub enum ContractError {
     #[error("Failed liquidation")]
     FailedLiquidation {},
 
+    #[error("Failed to serialize")]
+    FailedToSerialize { err_msg: String },
+
+    #[error("Failed to convert to binary")]
+    FailedToBinary { err_msg: String },
+
+    #[error("Failed to get equity and total market value")]
+    FailedToGetEquityAndTotalMarketValue { err_msg: String },
+
+    #[error("Failed to get order with order id")]
+    FailedToGetOrder { order_id: String },
+
+    #[error("Failed to fetch all balances")]
+    FailedToFetchBalances { err_msg: String },
+
     #[error("Insufficient balance")]
     InsufficientBalance {},
 
