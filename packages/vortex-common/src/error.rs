@@ -30,6 +30,12 @@ pub enum ContractError {
     #[error("Failed liquidation")]
     FailedLiquidation {},
 
+    #[error("Failed to store")]
+    FailedToStore { failed_storage: String },
+
+    #[error("Failed to fetch all balances")]
+    FailedToFetchBalances {},
+
     #[error("Insufficient balance")]
     InsufficientBalance {},
 
