@@ -1,5 +1,5 @@
-use std::io::Write;
 use std::fmt;
+use std::io::Write;
 
 use crate::utils::SignedDecimal;
 use cosmwasm_std::{Decimal, StdError};
