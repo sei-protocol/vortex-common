@@ -230,9 +230,11 @@ pub struct GetPositionResponse {
     pub long_position: SignedDecimal,
     pub long_position_margin_debt: SignedDecimal,
     pub long_position_last_funding_payment_epoch: i64,
+    pub long_position_pnl: SignedDecimal,
     pub short_position: SignedDecimal,
     pub short_position_margin_debt: SignedDecimal,
     pub short_position_last_funding_payment_epoch: i64,
+    pub short_position_pnl: SignedDecimal,
 }
 
 #[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema, Debug)]
