@@ -124,6 +124,7 @@ pub enum ExecuteMsg {
     },
     Liquidate {
         account: Addr,
+        multicollateral_liquidation: bool,
     },
     CreateDenom {
         denom_name: String,
