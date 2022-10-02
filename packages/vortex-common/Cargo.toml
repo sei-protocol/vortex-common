@@ -1,6 +1,6 @@
 [package]
 name = "vortex-common"
-version = "0.1.9"
+version = "0.2.0"
 edition = "2021"
 description = "Interface messages and data struct of Vortex protocol contracts"
 license = "Apache-2.0"
