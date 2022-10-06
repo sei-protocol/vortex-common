@@ -69,6 +69,7 @@ pub enum OrderType {
     Market,
     Liquidation,
     Fokmarket,
+    Fokmarketbyvalue,
 }
 
 impl fmt::Display for OrderType {
@@ -79,6 +80,7 @@ impl fmt::Display for OrderType {
             OrderType::Market => write!(f, "Market"),
             OrderType::Liquidation => write!(f, "Liquidation"),
             OrderType::Fokmarket => write!(f, "Fokmarket"),
+            OrderType::Fokmarketbyvalue => write!(f, "Fokmarketbyvalue"),
         }
     }
 }
@@ -89,6 +91,7 @@ pub fn i32_to_order_type(i: i32) -> OrderType {
         1i32 => OrderType::Market,
         2i32 => OrderType::Liquidation,
         3i32 => OrderType::Fokmarket,
+        4i32 => OrderType::Fokmarketbyvalue,
         _ => OrderType::Unknown,
     }
 }
@@ -99,6 +102,7 @@ pub fn order_type_to_i32(o: OrderType) -> i32 {
         OrderType::Market => 1i32,
         OrderType::Liquidation => 2i32,
         OrderType::Fokmarket => 3i32,
+        OrderType::Fokmarketbyvalue => 4i32,
         OrderType::Unknown => -1i32,
     }
 }
