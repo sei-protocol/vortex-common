@@ -206,7 +206,9 @@ pub enum QueryMsg {
         account: String,
     },
 
-    GetInsuranceFundBalance {},
+    GetInsuranceFundBalance {
+        denom: String,
+    },
 
     GetOrderEstimate {
         order: Order,

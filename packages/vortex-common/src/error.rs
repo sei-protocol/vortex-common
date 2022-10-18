@@ -39,6 +39,9 @@ pub enum ContractError {
     #[error("Failed to get equity and total market value")]
     FailedToGetEquityAndTotalMarketValue { err_msg: String },
 
+    #[error("Failed to get insurance fund from storage")]
+    FailedToGetInsuranceFund {},
+
     #[error("Failed to get order with order id")]
     FailedToGetOrder { order_id: String },
 
