@@ -228,6 +228,9 @@ pub struct GetBalancesResponse {
 
 #[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema)]
 pub struct GetPositionResponse {
+    pub account: String,
+    pub price_denom: String,
+    pub asset_denom: String,
     pub long_position: SignedDecimal,
     pub long_position_margin_debt: SignedDecimal,
     pub long_position_last_funding_payment_epoch: i64,
