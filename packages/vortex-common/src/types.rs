@@ -35,6 +35,18 @@ pub enum PositionDirection {
     Short,
 }
 
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+pub struct GetPositionQuery {
+    pub account: String,
+    pub price_denom: String,
+    pub asset_denom: String,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+pub struct GetPositionsQuery {
+    pub positions_requests: Vec<GetPositionQuery>,
+}
+
 impl fmt::Display for PositionDirection {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {

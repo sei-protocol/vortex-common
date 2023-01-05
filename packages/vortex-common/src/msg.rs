@@ -3,8 +3,8 @@ use std::collections::HashSet;
 use crate::{
     error::ContractError,
     types::{
-        i32_to_direction, i32_to_order_type, MarginRatios, Order, OrderType, PositionDirection,
-        PositionEffect,
+        i32_to_direction, i32_to_order_type, GetPositionQuery, GetPositionsQuery, MarginRatios,
+        Order, OrderType, PositionDirection, PositionEffect,
     },
     utils::SignedDecimal,
 };
@@ -190,11 +190,9 @@ pub enum QueryMsg {
         end_epoch: i64,
     },
 
-    GetPosition {
-        account: String,
-        price_denom: String,
-        asset_denom: String,
-    },
+    GetPosition(GetPositionQuery),
+
+    GetPositions(GetPositionsQuery),
 
     GetOrder {
         account: String,
@@ -238,6 +236,11 @@ pub struct GetPositionResponse {
     pub short_position_margin_debt: SignedDecimal,
     pub short_position_last_funding_payment_epoch: i64,
     pub short_position_pnl: SignedDecimal,
+}
+
+#[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema)]
+pub struct GetPositionsResponse {
+    pub positions: Vec<GetPositionResponse>,
 }
 
 #[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema, Debug)]
