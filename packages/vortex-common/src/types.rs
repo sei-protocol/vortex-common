@@ -22,6 +22,12 @@ pub struct Order {
     pub order_type: OrderType,
 }
 
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+pub struct FundingPaymentRate {
+    pub price_diff: SignedDecimal,
+    pub epoch: i64,
+}
+
 #[derive(Serialize, Deserialize, Copy, Clone, Debug, PartialEq, JsonSchema, Eq, Hash)]
 pub enum PositionDirection {
     Unknown,
