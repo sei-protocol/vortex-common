@@ -183,11 +183,9 @@ pub enum QueryMsg {
         account: String,
     },
 
-    GetFundingPaymentRates {
+    GetCumulativeFundingPaymentRate {
         price_denom: String,
         asset_denom: String,
-        start_epoch: i64,
-        end_epoch: i64,
     },
 
     GetPosition {
@@ -261,10 +259,8 @@ pub struct GetOrderResponse {
 }
 
 #[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema)]
-pub struct GetFundingPaymentRatesResponse {
-    pub price_diffs: Vec<Decimal>,
-    pub negatives: Vec<bool>,
-    pub epochs: Vec<i64>,
+pub struct GetCumulativeFundingRateResponse {
+    pub price_diff: SignedDecimal,
 }
 
 #[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema)]
