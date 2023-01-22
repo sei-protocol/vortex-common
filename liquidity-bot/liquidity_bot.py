@@ -34,29 +34,6 @@ class LiquidityBot:
         self.binary = binary
         self.chain_id = chain_id
 
-    def generate_random_order(account_address):
-        ot = "Long"
-        scale = ((3*(random.uniform(0, 1)**3)+1)**2)/50
-        p = round(base_price * (1 + scale), 2)
-        l = 1
-        q = random.randint(quantity_floor, quantity_ceiling)
-
-        if random.getrandbits(1):
-            ot = "Short"
-            p = round(base_price * (1 - scale), 2)
-            l += 1
-
-        return PLACE_ORDER.format(contract=contract_address,
-                                account=account_address,
-                                order_type=ot,
-                                price=p,
-                                quantity=q,
-                                price_denom="SEI",
-                                asset_denom="ATOM",
-                                leverage=l,
-                                amount=round(p * q * 1000500)
-                                )
-
     def get_oracle_price(self):
         result = subprocess.check_output(
             [
@@ -80,9 +57,9 @@ class LiquidityBot:
         quantity = round(random.uniform(0, 1) * 10, 2)
         print("quantity", quantity)
         if order_type == "SHORT":
-            price = self.get_oracle_price() + round(random.uniform(0, 1) * 5, 2)
+            price = self.get_oracle_price() + round(random.uniform(0, 1) * 0.1, 2)
         else:
-            price = self.get_oracle_price() - round(random.uniform(0, 1) * 5, 2)
+            price = self.get_oracle_price() - round(random.uniform(0, 1) * 0.1, 2)
 
         result = subprocess.check_output(
             [
@@ -119,4 +96,4 @@ if __name__ == "__main__":
     while True:
         lb.place_order("LONG")
         lb.place_order("SHORT")
-        time.sleep(30)
+        time.sleep(4)
